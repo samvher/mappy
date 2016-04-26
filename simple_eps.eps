@@ -1,0 +1,56 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: 0 0 18 80
+%%BeginProlog
+%%EndProlog
+
+% effectively draw in 192000 200000 210000 280000
+gsave
+
+0.001 0.001 scale
+-192000 -200000 translate
+
+% takes line width and rgb color and fills/strokes current polygon
+% (4 arguments taken from stack: strokewidth r g b)
+/colorandstroke {
+  gsave
+  setrgbcolor fill
+  grestore
+  setlinewidth stroke
+} def
+
+/m {moveto} def
+/l {lineto} def
+
+194000 204000 m
+204000 204000 l
+204000 264000 l
+194000 264000 l
+closepath
+
+196000 208000 m
+196000 260000 l
+202000 260000 l
+202000 208000 l
+closepath
+
+208000 270000 m
+209000 270000 l
+209000 278000 l
+208000 278000 l
+closepath
+
+100 0.8 0.2 0.1 colorandstroke
+
+grestore
+
+5 5 m
+14 5 l
+14 23 l
+5 23 l
+closepath
+
+0.2 0.0 1.0 0.0 colorandstroke
+
+showpage
+
+%%EOF

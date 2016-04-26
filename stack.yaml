@@ -1,0 +1,10 @@
+flags: {}
+packages:
+- '.'
+- '../readshp'
+- '../nlcoords'
+- '../figgy'
+extra-deps:
+- HDBC-2.4.0.1
+- HDBC-odbc-2.4.0.1
+resolver: lts-3.6
