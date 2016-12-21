@@ -2,6 +2,7 @@
 Module      : Batch
 Description : Code voor het inlezen van een batch van kaart beschrijvingen
 Author      : Sam van Herwaarden <samvherwaarden@gmail.com>
+
 -}
 
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
@@ -222,11 +223,11 @@ seqTupList = sequenceA . map sequenceA
 
 -- | Alle informatie voor 1 batch lezen
 getBatch :: BatchID -> IO (FilePath, [(String, MapData)])
-getBatch = (runBatchEnv $ do
+getBatch = runBatchEnv $ do
   outpath   <- getConfVal "outformat" "outdir"
   polymap   <- getPolyMap
   bID       <- asks batchID
   filedatas <- liftIO . fmap readRawBatch $ getRawBatch bID
   batchdata <- seqTupList $ map (second $ fdToMd polymap) filedatas
-  return (outpath, batchdata))
+  return (outpath, batchdata)
 
